@@ -1,0 +1,8 @@
+<xacro:macro name="loop" params="links_qty">
+    <!-- call some macros or do other things -->
+    <xacro:if value="${links_qty}">
+        <xacro:loop links_qty="${links_qty-1}" />
+    </xacro:if>
+</xacro:macro>
+
+<xacro:loop links_qty="15" />
