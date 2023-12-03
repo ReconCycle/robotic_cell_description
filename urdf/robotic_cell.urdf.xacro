@@ -1,9 +1,15 @@
 <?xml version="1.0"?>
 
 
+
+
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robotic_cell">
 
-  <xacro:include filename="$(find robotic_cell_description)/urdf/robot_arm.urdf" ns="ns_1" />
+  <xacro:include filename="$(find robotic_cell_description)/urdf/robot_arm.xacro" >
+  
+    <xacro:arg name="this_robot_name" value="robot_test1" />
+    
+  </xacro:include>
     
 
 </robot>
