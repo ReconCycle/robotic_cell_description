@@ -5,10 +5,27 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robotic_cell">
 
+
+  <joint name="togehter" type="fixed">
+      <origin xyz="0 1.0 0" rpy="0 0 0"/>
+      <axis xyz="1 0 0"/>
+      <parent link="cell_element1_base"/>
+      <child link="cell_element2_base"/>
+   </joint>
+
+ <xacro:property name="this_robot_name" value="cell_element1_" />
+
   <xacro:include filename="$(find robotic_cell_description)/urdf/robot_arm.xacro" >
   
-    <xacro:arg name="this_robot_name" value="robot_test1" />
-    
+
+
+  </xacro:include>
+
+   <xacro:property name="this_robot_name" value="cell_element2_" />
+
+  <xacro:include filename="$(find robotic_cell_description)/urdf/robot_arm.xacro" >
+
+
   </xacro:include>
     
 
