@@ -6,26 +6,36 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robotic_cell">
 
 
+  <xacro:property name="yaml_file" value="$(find robotic_cell_description)/config/active_config.yaml" />
+  <xacro:property name="active_config" value="${load_yaml(yaml_file)}"/>
+
+
+  <xacro:property name="current_connection_name" value="first_connection"/>
+
+  <xacro:property name="connection_config" value="${active_config[current_connection_name]}"/>
+
   <joint name="togehter" type="fixed">
-      <origin xyz="0 1.0 0" rpy="0 0 0"/>
+      <origin xyz="${connection_config['x']} ${connection_config['y']} ${connection_config['z']}" rpy="0 0 0"/>
       <axis xyz="1 0 0"/>
       <parent link="cell_element1_base"/>
       <child link="cell_element2_base"/>
    </joint>
 
- <xacro:property name="this_robot_name" value="cell_element1_" />
+
+
+
+  <xacro:property name="this_robot_name" value="cell_element1_" />
 
   <xacro:include filename="$(find robotic_cell_description)/urdf/robot_arm.xacro" >
-  
-
-
   </xacro:include>
 
-   <xacro:property name="this_robot_name" value="cell_element2_" />
+
+
+
+
+  <xacro:property name="this_robot_name" value="cell_element2_" />
 
   <xacro:include filename="$(find robotic_cell_description)/urdf/robot_arm.xacro" >
-
-
   </xacro:include>
     
 
