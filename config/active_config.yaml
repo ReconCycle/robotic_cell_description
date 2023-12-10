@@ -1,3 +1,8 @@
+
+active_description_elements: ["robot_1" , "robot_2"]
+
 first_connection: {parrent: "cell_element1_base", x: 1.2, y: 1.3, z: 1.4}
 
-test_x : 2.0
+robot_1: {package_name: "robotic_cell_description", urdf_name: "robot_arm.xacro", parrent: "robotic_cell_base", x: 1.2, y: 1.3, z: 1.4 , er: 0.0 , ep: 0.0, ey: 0.0 }
+robot_2: {package_name: "robotic_cell_description", urdf_name: "robot_arm.xacro", parrent: "robotic_cell_base", x: 1.0, y: 1.0, z: 1.0 , er: 0.0 , ep: 0.0, ey: 0.0 }
+
